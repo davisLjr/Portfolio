@@ -1,6 +1,7 @@
 .hero {
   position: relative;
-  min-height: 100dvh;
+  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,6 +11,9 @@
 
   @media (max-width: 768px) {
     align-items: center;
+    padding: 4rem 1rem 2rem 1rem;
+    min-height: 700px;
+    height: 700px;
   }
 }
 
@@ -44,6 +48,10 @@
     black 90%,
     transparent 100%
   );
+
+  @media (max-width: 768px) {
+    margin: 3rem 0 4rem;
+  }
 }
 
 .carousel {
@@ -112,7 +120,7 @@
   position: absolute;
   bottom: 3rem;
   left: 50%;
-  transform: translateX(-50%);
+  margin-left: -24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -145,13 +153,6 @@
   }
 
   @media (max-width: 768px) {
-    bottom: 2rem;
-    width: 42px;
-    height: 42px;
-
-    svg {
-      width: 24px;
-      height: 24px;
-    }
+    display: none;
   }
 }
