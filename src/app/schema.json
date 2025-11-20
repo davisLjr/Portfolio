@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Davis Lapenta",
+  "jobTitle": "Front-End Developer",
+  "description": "Desarrollador front-end con más de 5 años de experiencia en React, Next.js y TypeScript. Especializado en design systems, componentes reutilizables y UI/UX accesibles.",
+  "url": "https://davislapenta.com",
+  "email": "davisjuniorlvlp@gmail.com",
+  "sameAs": [
+    "https://linkedin.com/in/davis-laviera/"
+  ],
+  "knowsAbout": [
+    "React.js",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "React Native",
+    "Angular",
+    "Design Systems",
+    "UI/UX",
+    "Accessibility",
+    "Jest",
+    "React Testing Library",
+    "Storybook"
+  ],
+  "alumniOf": [
+    {
+      "@type": "EducationalOrganization",
+      "name": "C.E.T.I.A",
+      "description": "Diseño y Programación de Páginas Web"
+    },
+    {
+      "@type": "EducationalOrganization",
+      "name": "UTN",
+      "description": "Curso intensivo Angular y Drupal"
+    }
+  ],
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "Nonconformist",
+      "startDate": "2024-10"
+    }
+  ]
+}
