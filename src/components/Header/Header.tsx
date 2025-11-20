@@ -46,7 +46,7 @@ export default function Header({ navItems = defaultNavItems }: HeaderProps) {
       <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <span className="font-bebas">&lt;DAVIS/&gt;</span>
+            <span className="font-bebas">&lt;DAVIS LAPENTA/&gt;</span>
           </div>
 
           <nav className={styles.desktopNav}>

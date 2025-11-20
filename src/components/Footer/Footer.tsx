@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <span className="font-bebas">&lt;DAVIS/&gt;</span>
+            <span className="font-bebas">&lt;DAVIS LAPENTA/&gt;</span>
           </div>
 
           <div className={styles.actions}>
