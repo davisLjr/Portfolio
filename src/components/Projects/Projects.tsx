@@ -47,7 +47,7 @@ const projectsData: Project[] = [
     title: "Celpi",
     description: "Template de empresa que ofrece servicios tributarios con diseño profesional y moderno.",
     image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/celpi_txvq1t.jpg",
-    url: "https://example-celpi.vercel.app/",
+    url: "www.celpi.cl/",
     tags: ["Landing Page", "Corporate", "Responsive"],
   },
 ];
