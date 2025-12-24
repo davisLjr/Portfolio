@@ -14,7 +14,7 @@ const defaultNavItems = [
 export default function Header({ navItems = defaultNavItems }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme, mounted } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,7 +60,11 @@ export default function Header({ navItems = defaultNavItems }: HeaderProps) {
               className={styles.themeButton}
               aria-label="Toggle theme"
             >
-              {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+              {mounted ? (
+                theme === "light" ? <Moon size={20} /> : <Sun size={20} />
+              ) : (
+                <Sun size={20} />
+              )}
             </button>
             <a href="mailto:davisjuniorlvlp@gmail.com" className={styles.contactButton}>
               Contáctame
@@ -105,8 +109,17 @@ export default function Header({ navItems = defaultNavItems }: HeaderProps) {
             }}
             className={styles.drawerThemeButton}
           >
-            {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-            <span>{theme === "light" ? "Modo oscuro" : "Modo claro"}</span>
+            {mounted ? (
+              <>
+                {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
+                <span>{theme === "light" ? "Modo oscuro" : "Modo claro"}</span>
+              </>
+            ) : (
+              <>
+                <Sun size={20} />
+                <span>Modo claro</span>
+              </>
+            )}
           </button>
           <a
             href="mailto:davisjuniorlvlp@gmail.com"

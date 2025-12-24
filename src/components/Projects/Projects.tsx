@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, memo } from "react";
+import { memo, useMemo } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { ExternalLink } from "lucide-react";
@@ -75,19 +75,6 @@ const cardVariants = {
 };
 
 const ProjectCard = memo(({ project }: { project: Project }) => {
-  const tagsList = useMemo(
-    () => (
-      <div className={styles.tags}>
-        {project.tags.map((tag, index) => (
-          <span key={`${project.title}-tag-${index}`} className={styles.tag}>
-            {tag}
-          </span>
-        ))}
-      </div>
-    ),
-    [project.tags, project.title]
-  );
-
   return (
     <motion.a
       href={project.url}
@@ -105,6 +92,8 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
           fill
           className={styles.image}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={85}
+          loading="lazy"
         />
         <div className={styles.overlay}>
           <ExternalLink size={32} className={styles.icon} aria-hidden="true" />
@@ -113,7 +102,13 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
       <div className={styles.content}>
         <h3 className={styles.title}>{project.title}</h3>
         <p className={styles.description}>{project.description}</p>
-        {tagsList}
+        <div className={styles.tags}>
+          {project.tags.map((tag) => (
+            <span key={`${project.title}-${tag}`} className={styles.tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
       </div>
     </motion.a>
   );
@@ -122,14 +117,11 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
 ProjectCard.displayName = "ProjectCard";
 
 export default function Projects() {
-  const viewportConfig = useMemo(() => {
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
-    return {
-      once: false,
-      amount: isMobile ? 0.01 : 0.2,
-      margin: isMobile ? "0px 0px -450px 0px" : "0px 0px -50px 0px"
-    };
-  }, []);
+  const viewportConfig = useMemo(() => ({
+    once: false,
+    amount: 0.1,
+    margin: "0px 0px -100px 0px"
+  }), []);
 
   return (
     <section id="projects" className={styles.projects}>
@@ -161,8 +153,8 @@ export default function Projects() {
           whileInView="visible"
           viewport={viewportConfig}
         >
-          {projectsData.map((project, index) => (
-            <ProjectCard key={`${project.title}-${index}`} project={project} />
+          {projectsData.map((project) => (
+            <ProjectCard key={project.title} project={project} />
           ))}
         </motion.div>
       </div>
