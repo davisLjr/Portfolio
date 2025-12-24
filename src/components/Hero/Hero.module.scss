@@ -54,10 +54,30 @@
   }
 }
 
+.carouselTrack {
+  display: flex;
+  width: fit-content;
+  animation: scroll 55s linear infinite;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 .carousel {
   display: flex;
   gap: 2rem;
-  will-change: transform;
+  flex-shrink: 0;
 }
 
 .carouselItem {

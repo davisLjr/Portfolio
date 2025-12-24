@@ -1,0 +1,32 @@
+.curtainTop,
+.curtainBottom {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: var(--bg-color);
+  z-index: 9999;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.curtainTop {
+  top: 0;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.curtainBottom {
+  bottom: 0;
+  border-top: 1px solid var(--accent-color);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .curtainTop,
+  .curtainBottom {
+    animation: none;
+    transition: none;
+  }
+}

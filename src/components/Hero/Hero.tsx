@@ -7,7 +7,7 @@ import styles from "./Hero.module.scss";
 export default function Hero() {
   const carouselText = "FRONT END DEVELOPER";
 
-  const items = Array(10).fill(carouselText);
+  const items = Array(5).fill(carouselText);
 
   const handleScrollDown = () => {
     window.scrollTo({
@@ -23,24 +23,24 @@ export default function Hero() {
       </h1>
 
       <div className={styles.carouselContainer}>
-        <motion.div
-          className={styles.carousel}
-          animate={{
-            x: [0, -1800],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-        >
-          {items.map((text, index) => (
-            <div key={index} className={styles.carouselItem}>
-              <span className="font-bebas" aria-hidden="true">{text}</span>
-              <Star size={24} fill="currentColor" className={styles.star} aria-hidden="true" />
-            </div>
-          ))}
-        </motion.div>
+        <div className={styles.carouselTrack}>
+          <div className={styles.carousel}>
+            {items.map((text, index) => (
+              <div key={`original-${index}`} className={styles.carouselItem}>
+                <span className="font-bebas" aria-hidden="true">{text}</span>
+                <Star size={24} fill="currentColor" className={styles.star} aria-hidden="true" />
+              </div>
+            ))}
+          </div>
+          <div className={styles.carousel} aria-hidden="true">
+            {items.map((text, index) => (
+              <div key={`duplicate-${index}`} className={styles.carouselItem}>
+                <span className="font-bebas" aria-hidden="true">{text}</span>
+                <Star size={24} fill="currentColor" className={styles.star} aria-hidden="true" />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className={styles.content}>
