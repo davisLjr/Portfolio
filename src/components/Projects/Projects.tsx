@@ -37,12 +37,26 @@ const projectsData: Project[] = [
     tags: ["Design System", "React.js", "Angular", "Storybook"],
   },
   {
-    title: "Ecommerce Decoración",
-    description: "Template de ecommerce para emprendimiento de decoración de fiestas con catálogo y carrito.",
-    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/pin%CC%83a_cmtg8f.jpg",
-    url: "https://react-course-ba.vercel.app/",
-    tags: ["React.js", "Ecommerce", "UI/UX"],
+    title: "Eternal Love",
+    description: "Web funnel para emprendimiento de decoraciones y organización de eventos especiales.",
+    image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1770841344/eternal.jpg",
+    url: "https://eternal-love-two.vercel.app/",
+    tags: ["Landing Page", "Emprendimiento", "Decoración"],
   },
+  {
+    title: "DevQueens",
+    description: "Agencia de servicios digitales especializados en ecommerce, UI/UX y SEO.",
+    image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1770841963/Captura_de_pantalla_2026-02-11_a_las_21.31.41_s6euem.jpg",
+    url: "https://www.devqueens.us/",
+    tags: ["Servicios Digitales", "UI/UX", "SEO"],
+  },
+  // {
+  //   title: "Ecommerce Decoración",
+  //   description: "Template de ecommerce para emprendimiento de decoración de fiestas con catálogo y carrito.",
+  //   image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/pin%CC%83a_cmtg8f.jpg",
+  //   url: "https://react-course-ba.vercel.app/",
+  //   tags: ["React.js", "Ecommerce", "UI/UX"],
+  // },
   {
     title: "Celpi",
     description: "Template de empresa que ofrece servicios tributarios con diseño profesional y moderno.",
@@ -92,7 +106,6 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
           fill
           className={styles.image}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          quality={85}
           loading="lazy"
         />
         <div className={styles.overlay}>

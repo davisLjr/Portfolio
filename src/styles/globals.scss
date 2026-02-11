@@ -22,7 +22,28 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  // Removido scroll-behavior: smooth; porque Lenis se encarga del smooth scroll
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 html,
@@ -34,6 +55,7 @@ body {
 }
 
 body {
+  position: relative;
   font-family: var(--font-montserrat);
   font-weight: 400;
   line-height: 1.6;

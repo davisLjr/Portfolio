@@ -3,6 +3,7 @@ import { Bebas_Neue, Montserrat } from "next/font/google";
 import { Providers } from "@/components/Providers";
 import Header from "@/components/Header";
 import CurtainEffect from "@/components/CurtainEffect";
+import SmoothScroll from "@/components/SmoothScroll";
 import "@/styles/globals.scss";
 
 const bebasNeue = Bebas_Neue({
@@ -97,6 +98,7 @@ export default function RootLayout({
       </head>
       <body className={`${bebasNeue.variable} ${montserrat.variable}`} suppressHydrationWarning>
         <Providers>
+          <SmoothScroll />
           <CurtainEffect>
             <Header />
             {children}
