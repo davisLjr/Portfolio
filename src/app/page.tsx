@@ -1,5 +1,6 @@
 "use client";
 
+import ParallaxIntro from "@/components/ParallaxIntro";
 import Hero from "@/components/Hero";
 import PreStack from "@/components/PreStack";
 import Stack from "@/components/Stack";
@@ -12,6 +13,7 @@ import styles from "./page.module.scss";
 export default function Home() {
   return (
     <div className={styles.page}>
+      <ParallaxIntro />
       <Hero />
       <PreStack />
       <Stack />
