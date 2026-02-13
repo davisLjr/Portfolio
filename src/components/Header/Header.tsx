@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon } from "lucide-react";
+import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
 import { HeaderProps } from "./types";
 import styles from "./Header.module.scss";
@@ -11,7 +13,14 @@ const defaultNavItems = [
   { label: "Proyectos", href: "#projects" },
 ];
 
-export default function Header({ navItems = defaultNavItems }: HeaderProps) {
+const serviciosNavItems = [
+  { label: "Planes", href: "#planes" },
+  { label: "Proyectos", href: "#projects" },
+];
+
+export default function Header({ navItems }: HeaderProps) {
+  const pathname = usePathname();
+  const resolvedNavItems = navItems ?? (pathname === "/servicios" ? serviciosNavItems : defaultNavItems);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
@@ -46,11 +55,17 @@ export default function Header({ navItems = defaultNavItems }: HeaderProps) {
       <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <span className="font-bebas">&lt;DAVIS LAPENTA/&gt;</span>
+            <Image
+              src={mounted && theme === "light" ? "/logoLight.webp" : "/logoDark.webp"}
+              alt="Davis Lapenta"
+              width={180}
+              height={18}
+              priority
+            />
           </div>
 
           <nav className={styles.desktopNav}>
-            {navItems.map((item) => (
+            {resolvedNavItems.map((item) => (
               <a key={item.href} href={item.href} className={styles.navLink}>
                 {item.label}
               </a>
@@ -92,7 +107,7 @@ export default function Header({ navItems = defaultNavItems }: HeaderProps) {
           <X size={24} />
         </button>
         <nav className={styles.drawerNav}>
-          {navItems.map((item) => (
+          {resolvedNavItems.map((item) => (
             <a
               key={item.href}
               href={item.href}

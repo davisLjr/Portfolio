@@ -1,0 +1,210 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 6rem 2rem 2rem 2rem;
+  overflow: hidden;
+
+  @media (max-width: 768px) {
+    align-items: center;
+    padding: 4rem 1rem 4rem 1rem;
+    min-height: 100svh;
+    height: auto;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  margin: 4rem 0 3rem;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+
+  @media (max-width: 768px) {
+    margin: 2rem 0 2rem;
+  }
+}
+
+.carouselTrack {
+  display: flex;
+  width: fit-content;
+  animation: scroll 70s linear infinite;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.carousel {
+  display: flex;
+  gap: 2rem;
+  flex-shrink: 0;
+}
+
+.carouselItem {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  white-space: nowrap;
+  color: var(--text-color);
+
+  span {
+    font-size: 8rem;
+    font-family: var(--font-bebas);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 1;
+
+    @media (max-width: 1200px) {
+      font-size: 6vw;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+  }
+}
+
+.star {
+  flex-shrink: 0;
+  width: clamp(1.2rem, 3vw, 2rem);
+  height: clamp(1.2rem, 3vw, 2rem);
+  color: var(--accent-color);
+}
+
+.content {
+  max-width: 800px;
+  text-align: left;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.description {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--text-color);
+  opacity: 0.85;
+  max-width: 560px;
+
+  @media (max-width: 768px) {
+    line-height: 1.6;
+  }
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.5rem;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  font-family: var(--font-montserrat);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  width: fit-content;
+  margin-top: 0.5rem;
+
+  &:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.scrollButton {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  margin-left: -24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: 1px solid var(--text-color);
+  border-radius: 50%;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-width: 2px;
+
+    [data-theme="light"] & {
+      background: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}

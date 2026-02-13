@@ -7,7 +7,12 @@ import styles from "./ParallaxIntro.module.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function ParallaxIntro() {
+interface ParallaxIntroProps {
+  textBefore?: string;
+  textAfter?: string;
+}
+
+export default function ParallaxIntro({ textBefore = "DEVEL", textAfter = "PER" }: ParallaxIntroProps) {
   const spacerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -18,7 +23,7 @@ export default function ParallaxIntro() {
     if (!spacerRef.current || !overlayRef.current || !textRef.current || !oLetterRef.current || !backgroundRef.current) return;
 
     // Obtener el Hero y configurarlo inicialmente invisible
-    const heroSection = document.querySelector('section') as HTMLElement;
+    const heroSection = document.querySelector('[data-parallax-hero]') as HTMLElement;
     if (heroSection) {
       gsap.set(heroSection, { opacity: 0 });
     }
@@ -116,11 +121,11 @@ export default function ParallaxIntro() {
         {/* Fondo oscuro que aparece */}
         <div ref={backgroundRef} className={styles.darkBackground} />
 
-        {/* Texto Developer */}
+        {/* Texto animado */}
         <div ref={textRef} className={styles.text}>
-          <span>DEVEL</span>
+          <span>{textBefore}</span>
           <span ref={oLetterRef} className={styles.oLetter}>O</span>
-          <span>PER</span>
+          <span>{textAfter}</span>
         </div>
       </div>
     </>

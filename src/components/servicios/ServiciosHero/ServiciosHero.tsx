@@ -2,12 +2,15 @@
 
 import { motion } from "framer-motion";
 import { Star, ChevronDown } from "lucide-react";
-import styles from "./Hero.module.scss";
+import styles from "./ServiciosHero.module.scss";
 
-export default function Hero() {
-  const carouselText = "FRONT END DEVELOPER";
+export default function ServiciosHero() {
+  const carouselItems = [
+    "TU SITIO WEB PROFESIONAL",
+    "REALIZADA A TU MEDIDA",
+  ];
 
-  const items = Array(5).fill(carouselText);
+  const items = Array(5).fill(carouselItems).flat();
 
   const handleScrollDown = () => {
     window.scrollTo({
@@ -19,7 +22,7 @@ export default function Hero() {
   return (
     <section data-parallax-hero className={styles.hero}>
       <h1 className={styles.visuallyHidden}>
-        Davis Lapenta - Front End Developer
+        Davis Lapenta - Tu página web profesional
       </h1>
 
       <div className={styles.carouselContainer}>
@@ -44,14 +47,21 @@ export default function Hero() {
       </div>
 
       <div className={styles.content}>
+        <h2 className={`${styles.title} font-bebas`}>
+          Tu primera página web,<br />lista en días
+        </h2>
         <p className={styles.description}>
-          Soy desarrollador front-end con más de cinco años de experiencia
-          creando interfaces escalables y accesibles, principalmente con React
-          v18+, Next.js v15+ y TypeScript. A lo largo de mi carrera he
-          trabajado en la construcción de design systems, componentes
-          reutilizables y pruebas con Jest y React Testing Library, orientadas
-          al UI/UX y a la mejora del código.
+          Sin tecnicismos, sin complicaciones. Llevamos tu negocio a internet
+          con un diseño que atrae clientes y transmite confianza desde el primer clic.
         </p>
+        <a
+          href="https://wa.me/34662402792?text=Hola%20Davis%2C%20me%20interesa%20tener%20mi%20p%C3%A1gina%20web"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.ctaButton}
+        >
+          Hablemos hoy
+        </a>
       </div>
 
       <motion.button
