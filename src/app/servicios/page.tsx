@@ -3,6 +3,7 @@
 import ParallaxIntro from "@/components/ParallaxIntro";
 import ServiciosHero from "@/components/servicios/ServiciosHero";
 import ServiciosPreStack from "@/components/servicios/ServiciosPreStack";
+import ServiciosGratis from "@/components/servicios/ServiciosGratis";
 import ServiciosPricing from "@/components/servicios/ServiciosPricing";
 import ServiciosAboutMe from "@/components/servicios/ServiciosAboutMe";
 import WhatsAppButton from "@/components/servicios/WhatsAppButton";
@@ -16,6 +17,7 @@ export default function Servicios() {
       <ParallaxIntro textBefore="BIENVENID" textAfter="" />
       <ServiciosHero />
       <ServiciosPreStack />
+      <ServiciosGratis />
       <ServiciosPricing />
       <ServiciosAboutMe />
       <Projects />
