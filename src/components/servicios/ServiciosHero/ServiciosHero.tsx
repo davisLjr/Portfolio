@@ -6,8 +6,8 @@ import styles from "./ServiciosHero.module.scss";
 
 export default function ServiciosHero() {
   const carouselItems = [
-    "TU SITIO WEB PROFESIONAL",
-    "REALIZADA A TU MEDIDA",
+    "TU NEGOCIO EXISTE.",
+    "PERO EN INTERNET NO.",
   ];
 
   const items = Array(5).fill(carouselItems).flat();
