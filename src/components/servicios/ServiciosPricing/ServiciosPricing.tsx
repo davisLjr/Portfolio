@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, memo, useState, useEffect } from "react";
+import { useMemo, memo } from "react";
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import styles from "./ServiciosPricing.module.scss";
@@ -26,7 +26,7 @@ const plans: Plan[] = [
     price: "$160",
     tagline: "Ideal para negocios que están empezando y necesitan presencia online básica.",
     ctaLabel: "Empezar con este plan",
-    ctaHref: "https://buy.stripe.com/test_3cI6oH3GXaCLgJv2893Ru00",
+    ctaHref: "https://buy.stripe.com/4gMdR9eeQ6DD2fV1mAaR200",
     features: [
       { label: "Hasta 3 secciones", included: true },
       { label: "Formulario de contacto", included: true },
@@ -42,7 +42,7 @@ const plans: Plan[] = [
     price: "$200",
     tagline: "Perfecto para negocios que quieren una imagen profesional sólida y generar más clientes.",
     ctaLabel: "Quiero este plan",
-    ctaHref: "https://buy.stripe.com/test_bJe00jgtJ3ajal71453Ru01",
+    ctaHref: "https://buy.stripe.com/9B63cveeQ8LLf2HghuaR201",
     popular: true,
     features: [
       { label: "Hasta 6 secciones estratégicas", included: true },
@@ -61,7 +61,7 @@ const plans: Plan[] = [
     price: "$280",
     tagline: "Ideal para negocios que quieren invertir en publicidad y maximizar conversiones.",
     ctaLabel: "Quiero vender más",
-    ctaHref: "https://buy.stripe.com/test_bJe28r3GX9yH2SFeUV3Ru02",
+    ctaHref: "https://buy.stripe.com/9B65kD7QsaTTcUz6GUaR202",
     features: [
       { label: "Todo lo incluido en el Plan Profesional", included: true },
       { label: "Hasta 2 funnels estratégicos orientados a producto o servicio", included: true },
@@ -134,17 +134,14 @@ const PlanCard = memo(({ plan }: { plan: Plan }) => (
 PlanCard.displayName = "PlanCard";
 
 export default function ServiciosPricing() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
+  const viewportConfig = useMemo(() => {
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+    return {
+      once: false,
+      amount: isMobile ? 0.01 : 0.2,
+      margin: isMobile ? "0px 0px -450px 0px" : "0px 0px -100px 0px",
+    };
   }, []);
-
-  const viewportConfig = useMemo(() => ({
-    once: false,
-    amount: isMobile ? 0.01 : 0.2,
-    margin: isMobile ? "0px 0px -450px 0px" : "0px 0px -100px 0px",
-  }), [isMobile]);
 
   const titleTransition = useMemo(() => ({ duration: 0.6 }), []);
 
