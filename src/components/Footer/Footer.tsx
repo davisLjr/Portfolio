@@ -1,15 +1,24 @@
 "use client";
 
 import { Download, Linkedin } from "lucide-react";
+import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
+  const { theme, mounted } = useTheme();
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.logo}>
-            <span className="font-bebas">&lt;DAVIS LAPENTA/&gt;</span>
+            <Image
+              src={mounted && theme === "light" ? "/logoLight.webp" : "/logoDark.webp"}
+              alt="Davis Lapenta"
+              width={180}
+              height={18}
+            />
           </div>
 
           <div className={styles.actions}>

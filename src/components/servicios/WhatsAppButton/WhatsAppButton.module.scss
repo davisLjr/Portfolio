@@ -1,0 +1,38 @@
+.button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    padding: 0.75rem;
+    border-radius: 50%;
+
+    .label {
+      display: none;
+    }
+  }
+}
+
+.label {
+  font-family: var(--font-montserrat);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
