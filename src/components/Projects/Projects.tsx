@@ -16,20 +16,6 @@ type Project = {
 
 const projectsData: Project[] = [
   {
-    title: "Millobank - Web Front",
-    description: "Juego simulador de billetera virtual con interfaz web moderna e interactiva.",
-    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/millo_g2vl1u.jpg",
-    url: "https://millobank-front.vercel.app/",
-    tags: ["React.js", "Next.js", "TypeScript"],
-  },
-  {
-    title: "Millobank - App Simulador",
-    description: "Aplicación móvil del juego simulador de banco virtual con experiencia nativa.",
-    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/app_t7gkba.jpg",
-    url: "https://millo-bank.vercel.app/",
-    tags: ["React Native", "Mobile", "Simulación"],
-  },
-  {
     title: "Obelisco Design System",
     description: "Librería de componentes web y sistema de diseño para el Gobierno de la Ciudad de Buenos Aires.",
     image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/obelisco_abqujm.jpg",
@@ -59,10 +45,31 @@ const projectsData: Project[] = [
   // },
   {
     title: "Celpi",
-    description: "Template de empresa que ofrece servicios tributarios con diseño profesional y moderno.",
+    description: "Landing embudo para empresa de servicios legales, tributarios y administrativos. Diseñada para convertir visitas en clientes desde el primer clic.",
     image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/celpi_txvq1t.jpg",
     url: "https://celpi.cl/",
-    tags: ["Landing Page", "Corporate", "Responsive"],
+    tags: ["Landing Page", "Funnel", "Servicios Legales"],
+  },
+  {
+    title: "Colegio de Contadores Valle Dorado",
+    description: "Funnel orientado a publicidad para colegio de contadores, diseñado para convertir tráfico en registros.",
+    image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1771019719/Captura_de_pantalla_2026-02-13_a_las_22.53.35_qedc3z.jpg",
+    url: "https://ccvd-wheat.vercel.app/",
+    tags: ["Funnel", "Publicidad", "Responsive"],
+  },
+  {
+    title: "Millobank - Web Front",
+    description: "Juego simulador de billetera virtual con interfaz web moderna e interactiva.",
+    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/millo_g2vl1u.jpg",
+    url: "https://millobank-front.vercel.app/",
+    tags: ["React.js", "Next.js", "TypeScript"],
+  },
+  {
+    title: "Millobank - App Simulador",
+    description: "Aplicación móvil del juego simulador de banco virtual con experiencia nativa.",
+    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/app_t7gkba.jpg",
+    url: "https://millo-bank.vercel.app/",
+    tags: ["React Native", "Mobile", "Simulación"],
   },
 ];
 
