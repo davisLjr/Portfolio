@@ -31,7 +31,7 @@ export default function ServiciosHero() {
             {items.map((text, index) => (
               <div key={`original-${index}`} className={styles.carouselItem}>
                 <span className="font-bebas" aria-hidden="true">{text}</span>
-                <Star size={24} fill="currentColor" className={styles.star} aria-hidden="true" />
+                <Star size={16} fill="currentColor" className={styles.star} aria-hidden="true" />
               </div>
             ))}
           </div>
@@ -39,29 +39,117 @@ export default function ServiciosHero() {
             {items.map((text, index) => (
               <div key={`duplicate-${index}`} className={styles.carouselItem}>
                 <span className="font-bebas" aria-hidden="true">{text}</span>
-                <Star size={24} fill="currentColor" className={styles.star} aria-hidden="true" />
+                <Star size={16} fill="currentColor" className={styles.star} aria-hidden="true" />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div className={styles.content}>
-        <h2 className={`${styles.title} font-bebas`}>
-          Tu primera página web,<br />lista en días
-        </h2>
-        <p className={styles.description}>
-          Sin tecnicismos, sin complicaciones. Llevamos tu negocio a internet
-          con un diseño que atrae clientes y transmite confianza desde el primer clic.
-        </p>
-        <a
-          href="https://wa.me/34662402792?text=Hola%20Davis%2C%20me%20interesa%20tener%20mi%20p%C3%A1gina%20web"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.ctaButton}
+      <div className={styles.heroBody}>
+        <div className={styles.content}>
+          <h2 className={`${styles.title} font-bebas`}>
+            La web que tu negocio<br />necesitaba desde el principio
+          </h2>
+          <p className={styles.description}>
+            Sin tecnicismos, sin complicaciones. Llevamos tu negocio a internet
+            con un diseño que atrae clientes y transmite confianza desde el primer clic.
+            Lista para marketing.
+          </p>
+          <a
+            href="https://wa.me/34662402792?text=Hola%20Davis%2C%20me%20interesa%20tener%20mi%20p%C3%A1gina%20web"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaButton}
+          >
+            Hablemos hoy
+          </a>
+          <p className={styles.trustBadges}>
+            <span>✓ Sin compromiso</span>
+            <span className={styles.dot}>·</span>
+            <span>✓ Propuesta gratis</span>
+            <span className={styles.dot}>·</span>
+            <span>✓ Respuesta en 24h</span>
+          </p>
+        </div>
+
+        <motion.div
+          className={styles.statsPanel}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
         >
-          Hablemos hoy
-        </a>
+          {/* Stats row */}
+          <div className={styles.statsRow}>
+            <motion.div
+              className={styles.stat}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.65 }}
+            >
+              <span className={`${styles.statNumber} font-bebas`}>47+</span>
+              <span className={styles.statLabel}>Webs entregadas</span>
+            </motion.div>
+            <div className={styles.statDivider} />
+            <motion.div
+              className={styles.stat}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              <span className={`${styles.statNumber} font-bebas`}>96%</span>
+              <span className={styles.statLabel}>Clientes satisfechos</span>
+            </motion.div>
+          </div>
+
+          <div className={styles.separator} />
+
+          {/* Project section */}
+          <motion.div
+            className={styles.projectSection}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.95 }}
+          >
+            <span className={styles.projectLabel}>— Proyecto reciente</span>
+
+            {/* Browser mockup */}
+            <div className={styles.browser}>
+              <div className={styles.browserBar}>
+                <div className={styles.browserDots}>
+                  <span className={styles.dotRed} />
+                  <span className={styles.dotYellow} />
+                  <span className={styles.dotGreen} />
+                </div>
+                <div className={styles.urlBar}>devqueens.us</div>
+              </div>
+              <div className={styles.browserContent}>
+                <div className={styles.mockHero}>
+                  <div className={styles.mockHeroLines}>
+                    <div className={styles.mockLine} />
+                    <div className={styles.mockLineShort} />
+                  </div>
+                  <div className={styles.mockBtn} />
+                </div>
+                <div className={styles.mockCards}>
+                  <div className={styles.mockCard} />
+                  <div className={styles.mockCard} />
+                  <div className={styles.mockCard} />
+                </div>
+              </div>
+              <div className={styles.browserFooter}>
+                <span className={styles.browserProjectName}>DevQueens · Digital Services</span>
+                <span className={styles.browserStars}>★★★★★</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Available indicator */}
+          <div className={styles.available}>
+            <span className={styles.availableDot} />
+            <span className={styles.availableText}>Disponible para nuevos proyectos</span>
+          </div>
+        </motion.div>
       </div>
 
       <motion.button

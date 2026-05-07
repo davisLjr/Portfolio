@@ -64,13 +64,13 @@ const projectsData: Project[] = [
     url: "https://millobank-front.vercel.app/",
     tags: ["React.js", "Next.js", "TypeScript"],
   },
-  {
-    title: "Millobank - App Simulador",
-    description: "Aplicación móvil del juego simulador de banco virtual con experiencia nativa.",
-    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/app_t7gkba.jpg",
-    url: "https://millo-bank.vercel.app/",
-    tags: ["React Native", "Mobile", "Simulación"],
-  },
+  // {
+  //   title: "Millobank - App Simulador",
+  //   description: "Aplicación móvil del juego simulador de banco virtual con experiencia nativa.",
+  //   image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/app_t7gkba.jpg",
+  //   url: "https://millo-bank.vercel.app/",
+  //   tags: ["React Native", "Mobile", "Simulación"],
+  // },
 ];
 
 const containerVariants = {

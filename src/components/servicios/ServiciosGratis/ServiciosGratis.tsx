@@ -133,8 +133,8 @@ export default function ServiciosGratis() {
           transition={{ duration: 0.6, delay: 0.35 }}
         >
           <p className={styles.ctaNote}>
-            Todo en móvil, todo responsive — porque más del 70% de tus futuros
-            clientes te van a visitar desde el teléfono.
+            Tu web se verá perfecta en cualquier teléfono — más del 70% de tus
+            clientes te van a buscar desde ahí.
           </p>
           <a
             href="https://wa.me/34662402792?text=Hola%20Davis%2C%20quiero%20mi%20asesoramiento%20gratuito"

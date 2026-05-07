@@ -187,7 +187,7 @@ export default function ServiciosPricing() {
           viewport={viewportConfig}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          * En todos los planes el código es tuyo. Sin suscripciones ni dependencias. Tu página puede ser modificada por cualquier desarrollador en el futuro.
+          * En todos los planes el código es tuyo. Sin suscripciones ni dependencias. Tu página puede ser modificada por cualquier desarrollador o agente de IA en el futuro.
         </motion.p>
       </div>
     </section>
