@@ -1,76 +1,95 @@
 "use client";
 
-import { memo, useMemo } from "react";
-import { motion } from "framer-motion";
+import { memo, useMemo, useState, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Info } from "lucide-react";
+import type { Project } from "./types";
+import ProjectModal from "./ProjectModal";
 import styles from "./Projects.module.scss";
-
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  url: string;
-  tags: string[];
-};
 
 const projectsData: Project[] = [
   {
     title: "Obelisco Design System",
     description: "Librería de componentes web y sistema de diseño para el Gobierno de la Ciudad de Buenos Aires.",
     image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/obelisco_abqujm.jpg",
+    linkType: "external",
     url: "https://gcba.github.io/",
     tags: ["Design System", "React.js", "Angular", "Storybook"],
   },
   {
-    title: "Eternal Love",
-    description: "Web funnel para emprendimiento de decoraciones y organización de eventos especiales.",
-    image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1770841344/eternal.jpg",
-    url: "https://eternal-love-two.vercel.app/",
-    tags: ["Landing Page", "Emprendimiento", "Decoración"],
+    title: "Banco - Design System",
+    description: "Desarrollo y documentación de sistema de diseño multi-plataforma para entidad bancaria.",
+    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1783951934/libreria_trgtzu.jpg",
+    linkType: "modal",
+    tags: ["Design System", "React.js", "React Native", "Angular", "Storybook"],
+    modalDetails: [
+      "Más de 40 componentes en React.js",
+      "Más de 40 componentes en React Native",
+      "Más de 40 componentes en Angular",
+      "Documentación en Storybook",
+      "Arquitectura monorepo",
+      "Soporte técnico a equipos de implementación",
+      "Iteración y mejora continua",
+      "Testing automatizado de cada librería",
+    ],
   },
   {
     title: "DevQueens",
     description: "Agencia de servicios digitales especializados en ecommerce, UI/UX y SEO.",
     image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1770841963/Captura_de_pantalla_2026-02-11_a_las_21.31.41_s6euem.jpg",
+    linkType: "external",
     url: "https://www.devqueens.us/",
     tags: ["Servicios Digitales", "UI/UX", "SEO"],
   },
-  // {
-  //   title: "Ecommerce Decoración",
-  //   description: "Template de ecommerce para emprendimiento de decoración de fiestas con catálogo y carrito.",
-  //   image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/pin%CC%83a_cmtg8f.jpg",
-  //   url: "https://react-course-ba.vercel.app/",
-  //   tags: ["React.js", "Ecommerce", "UI/UX"],
-  // },
+  {
+    title: "Yelloow Terra",
+    description: "Marketplace de productos ecológicos con sistema de puntuación de sostenibilidad (YTSS).",
+    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1783951575/yelloowterra_uvel1r.jpg",
+    linkType: "external",
+    url: "https://www.yelloowterra.com/",
+    tags: ["Shopify", "E-commerce", "Marketplace"],
+  },
   {
     title: "Celpi",
     description: "Landing embudo para empresa de servicios legales, tributarios y administrativos. Diseñada para convertir visitas en clientes desde el primer clic.",
     image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/celpi_txvq1t.jpg",
+    linkType: "external",
     url: "https://celpi.cl/",
     tags: ["Landing Page", "Funnel", "Servicios Legales"],
+  },
+  {
+    title: "GC Asesores",
+    description: "Sitio web para firma de asesoría fiscal, financiera y patrimonial con más de 35 años de experiencia.",
+    image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1783951575/GCasesores_gdehqv.jpg",
+    linkType: "external",
+    url: "https://www.gcasesoresprofesionales.com/",
+    tags: ["Next.js", "Consultoría", "Landing Page"],
   },
   {
     title: "Colegio de Contadores Valle Dorado",
     description: "Funnel orientado a publicidad para colegio de contadores, diseñado para convertir tráfico en registros.",
     image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1771019719/Captura_de_pantalla_2026-02-13_a_las_22.53.35_qedc3z.jpg",
+    linkType: "external",
     url: "https://ccvd-wheat.vercel.app/",
     tags: ["Funnel", "Publicidad", "Responsive"],
+  },
+  {
+    title: "Eternal Love",
+    description: "Web funnel para emprendimiento de decoraciones y organización de eventos especiales.",
+    image: "https://res.cloudinary.com/dljbxdjl7/image/upload/v1770841344/eternal.jpg",
+    linkType: "external",
+    url: "https://eternal-love-two.vercel.app/",
+    tags: ["Landing Page", "Emprendimiento", "Decoración"],
   },
   {
     title: "Millobank - Web Front",
     description: "Juego simulador de billetera virtual con interfaz web moderna e interactiva.",
     image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/millo_g2vl1u.jpg",
+    linkType: "external",
     url: "https://millobank-front.vercel.app/",
     tags: ["React.js", "Next.js", "TypeScript"],
   },
-  // {
-  //   title: "Millobank - App Simulador",
-  //   description: "Aplicación móvil del juego simulador de banco virtual con experiencia nativa.",
-  //   image: "https://res.cloudinary.com/djqiqpilh/image/upload/v1763660248/app_t7gkba.jpg",
-  //   url: "https://millo-bank.vercel.app/",
-  //   tags: ["React Native", "Mobile", "Simulación"],
-  // },
 ];
 
 const containerVariants = {
@@ -95,17 +114,9 @@ const cardVariants = {
   },
 };
 
-const ProjectCard = memo(({ project }: { project: Project }) => {
+const CardContent = memo(({ project }: { project: Project }) => {
   return (
-    <motion.a
-      href={project.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={styles.card}
-      variants={cardVariants}
-      whileHover={{ y: -8 }}
-      transition={{ duration: 0.3 }}
-    >
+    <>
       <div className={styles.imageContainer}>
         <Image
           src={project.image}
@@ -116,7 +127,11 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
           loading="lazy"
         />
         <div className={styles.overlay}>
-          <ExternalLink size={32} className={styles.icon} aria-hidden="true" />
+          {project.linkType === "modal" ? (
+            <Info size={32} className={styles.icon} aria-hidden="true" />
+          ) : (
+            <ExternalLink size={32} className={styles.icon} aria-hidden="true" />
+          )}
         </div>
       </div>
       <div className={styles.content}>
@@ -130,6 +145,36 @@ const ProjectCard = memo(({ project }: { project: Project }) => {
           ))}
         </div>
       </div>
+    </>
+  );
+});
+
+CardContent.displayName = "CardContent";
+
+const ProjectCard = memo(({ project, onOpenModal }: { project: Project; onOpenModal?: () => void }) => {
+  const motionProps = {
+    className: styles.card,
+    variants: cardVariants,
+    whileHover: { y: -8 },
+    transition: { duration: 0.3 },
+  };
+
+  if (project.linkType === "modal") {
+    return (
+      <motion.button onClick={onOpenModal} {...motionProps}>
+        <CardContent project={project} />
+      </motion.button>
+    );
+  }
+
+  return (
+    <motion.a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...motionProps}
+    >
+      <CardContent project={project} />
     </motion.a>
   );
 });
@@ -142,6 +187,16 @@ export default function Projects() {
     amount: 0.1,
     margin: "0px 0px -100px 0px"
   }), []);
+
+  const [modalProject, setModalProject] = useState<Project | null>(null);
+
+  const openModal = useCallback((project: Project) => {
+    setModalProject(project);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setModalProject(null);
+  }, []);
 
   return (
     <section id="projects" className={styles.projects}>
@@ -174,10 +229,20 @@ export default function Projects() {
           viewport={viewportConfig}
         >
           {projectsData.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+            <ProjectCard
+              key={project.title}
+              project={project}
+              onOpenModal={project.linkType === "modal" ? () => openModal(project) : undefined}
+            />
           ))}
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {modalProject && modalProject.linkType === "modal" && (
+          <ProjectModal project={modalProject} onClose={closeModal} />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
