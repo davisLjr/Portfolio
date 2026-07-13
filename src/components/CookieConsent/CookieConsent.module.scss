@@ -1,11 +1,11 @@
 .banner {
   position: fixed;
   bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 1rem;
+  right: 1rem;
   z-index: 999;
   max-width: 600px;
-  width: calc(100% - 2rem);
+  margin: 0 auto;
   background: rgba(20, 20, 20, 0.95);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -26,7 +26,6 @@
     gap: 1rem;
     padding: 1.25rem;
     bottom: 1rem;
-    width: calc(100% - 1.5rem);
   }
 }
 
