@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-davis.vercel.app";
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-three-taupe-12.vercel.app";
 
   return [
     {
@@ -9,18 +9,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
-    },
-    {
-      url: `${baseUrl}/#aboutme`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#projects`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
     },
   ];
 }

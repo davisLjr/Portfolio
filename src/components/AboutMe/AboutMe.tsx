@@ -46,8 +46,9 @@ export default function AboutMe() {
 
             <p className={styles.paragraph}>
               A lo largo de mi carrera he participado en la construcción y migración de design systems,
-              el desarrollo de sitios web front-end y componentes reutilizables, además de la documentación
-              técnica con Storybook y la implementación de pruebas con Jest y React Testing Library.
+              el desarrollo de sitios web front-end y componentes reutilizables, además de la integración
+              de interfaces con <span className={styles.highlight}>APIs y servicios en Node.js/Express</span>,
+              la documentación técnica con Storybook y la implementación de pruebas con Jest y React Testing Library.
               Siempre mantengo el foco en la <span className={styles.highlight}>calidad del código</span>,
               la coherencia visual y la performance.
             </p>

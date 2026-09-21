@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import Image from "next/image";
 import { useTheme } from "@/context/ThemeContext";
+import ContactModal from "@/components/ContactModal";
 import { HeaderProps } from "./types";
 import styles from "./Header.module.scss";
 
@@ -23,6 +24,7 @@ export default function Header({ navItems }: HeaderProps) {
   const resolvedNavItems = navItems ?? (pathname === "/servicios" ? serviciosNavItems : defaultNavItems);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const { theme, toggleTheme, mounted } = useTheme();
 
   useEffect(() => {
@@ -35,7 +37,7 @@ export default function Header({ navItems }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    if (isDrawerOpen) {
+    if (isDrawerOpen || isContactOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "unset";
@@ -44,7 +46,7 @@ export default function Header({ navItems }: HeaderProps) {
     return () => {
       document.body.style.overflow = "unset";
     };
-  }, [isDrawerOpen]);
+  }, [isDrawerOpen, isContactOpen]);
 
   const handleNavClick = () => {
     setIsDrawerOpen(false);
@@ -81,9 +83,14 @@ export default function Header({ navItems }: HeaderProps) {
                 <Sun size={20} />
               )}
             </button>
-            <a href="mailto:davisjuniorlvlp@gmail.com" className={styles.contactButton}>
+            <button
+              type="button"
+              aria-haspopup="dialog"
+              onClick={() => setIsContactOpen(true)}
+              className={styles.contactButton}
+            >
               Contáctame
-            </a>
+            </button>
           </nav>
 
           <button
@@ -136,13 +143,16 @@ export default function Header({ navItems }: HeaderProps) {
               </>
             )}
           </button>
-          <a
-            href="mailto:davisjuniorlvlp@gmail.com"
+          <button
+            type="button"
             className={styles.drawerContactButton}
-            onClick={handleNavClick}
+            onClick={() => {
+              setIsDrawerOpen(false);
+              setIsContactOpen(true);
+            }}
           >
             Contáctame
-          </a>
+          </button>
         </nav>
       </div>
 
@@ -152,6 +162,8 @@ export default function Header({ navItems }: HeaderProps) {
           onClick={() => setIsDrawerOpen(false)}
         />
       )}
+
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 }

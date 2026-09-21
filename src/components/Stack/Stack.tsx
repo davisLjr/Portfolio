@@ -19,6 +19,14 @@ const stackData: StackCategory[] = [
     items: ["React.js", "Next.js", "React Native", "Angular v17+", "Vite"],
   },
   {
+    title: "Estado & Datos",
+    items: ["Context API", "Zustand", "Jotai", "TanStack Query", "React Hook Form", "Custom Hooks"],
+  },
+  {
+    title: "Backend & Integraciones",
+    items: ["Node.js", "Express", "APIs REST", "Clean Architecture", "Supabase", "Stripe", "Mercado Pago", "Prismic", "Shopify", "Google Apps Script"],
+  },
+  {
     title: "UI & Diseño",
     items: ["Bootstrap", "Chakra UI", "Material UI", "Figma", "TailwindCSS", "Accessibility"],
   },

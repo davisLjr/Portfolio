@@ -1,36 +1,27 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./CurtainEffect.module.scss";
 
+const CURTAIN_HOLD_MS = 800;
+
 export default function CurtainEffect({ children }: Readonly<{ children: React.ReactNode }>) {
   const [showCurtain, setShowCurtain] = useState(true);
-  const hasCheckedSession = useRef(false);
-
-  const hideCurtain = useCallback(() => {
-    setShowCurtain(false);
-  }, []);
 
   useEffect(() => {
-    if (hasCheckedSession.current) return;
-    hasCheckedSession.current = true;
-
-    const hasSeenCurtain = sessionStorage.getItem("hasSeenCurtain");
-
-    if (hasSeenCurtain) {
-      // Using callback to satisfy linter
-      requestAnimationFrame(hideCurtain);
-      return;
+    if (sessionStorage.getItem("hasSeenCurtain")) {
+      const raf = requestAnimationFrame(() => setShowCurtain(false));
+      return () => cancelAnimationFrame(raf);
     }
 
     const timer = setTimeout(() => {
       sessionStorage.setItem("hasSeenCurtain", "true");
-      hideCurtain();
-    }, 800);
+      setShowCurtain(false);
+    }, CURTAIN_HOLD_MS);
 
     return () => clearTimeout(timer);
-  }, [hideCurtain]);
+  }, []);
 
   return (
     <>

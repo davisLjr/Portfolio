@@ -106,6 +106,9 @@
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
+  // Neutralize UA button styles so the rendered box matches the previous anchor
+  appearance: none;
+  line-height: inherit;
 
   [data-theme="light"] & {
     background: #c8c8c84f;
@@ -261,6 +264,9 @@
   cursor: pointer;
   transition: all 0.2s ease;
   backdrop-filter: blur(10px);
+  // Neutralize UA button styles so the rendered box matches the previous anchor
+  appearance: none;
+  line-height: inherit;
 
   [data-theme="light"] & {
     background: #c8c8c84f;

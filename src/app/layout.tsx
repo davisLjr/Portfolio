@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import CurtainEffect from "@/components/CurtainEffect";
 import SmoothScroll from "@/components/SmoothScroll";
 import CookieConsent from "@/components/CookieConsent";
+import { personSchema } from "./schema";
 import "@/styles/globals.scss";
 
 const bebasNeue = Bebas_Neue({
@@ -20,6 +21,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-three-taupe-12.vercel.app"),
   title: "Davis Lapenta | Front-End Developer - React, Next.js, TypeScript",
   description: "Desarrollador front-end con más de 5 años de experiencia en React, Next.js y TypeScript. Especializado en design systems, componentes reutilizables y UI/UX accesibles.",
   keywords: [
@@ -62,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "es_ES",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-davis.vercel.app",
+    url: process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-three-taupe-12.vercel.app",
     title: "Davis Lapenta | Front-End Developer",
     description: "Desarrollador front-end especializado en React, Next.js y TypeScript con más de 5 años de experiencia.",
     siteName: "Davis Lapenta Portfolio",
@@ -95,6 +97,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `(function(){const theme=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',theme);})();`,
           }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
         />
       </head>
       <body className={`${bebasNeue.variable} ${montserrat.variable}`} suppressHydrationWarning>

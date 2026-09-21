@@ -17,9 +17,9 @@ const experienceData: Experience[] = [
     company: "Nonconformist - Banco Macro",
     period: "10/2024 – Presente",
     highlights: [
-      "Desarrollo y testeo de componentes para un Component Design System (CDS) en React Native, siguiendo las especificaciones de diseño en Figma.",
+      "Desarrollo y testeo de componentes para un Component Design System (CDS) en React y React Native, siguiendo las especificaciones de diseño en Figma.",
       "Iteración y optimización de componentes en React.js, priorizando la consistencia visual, la reutilización y la performance.",
-      "Participación en la creación del entorno de librería de componentes en Angular 20, colaborando directamente en el desarrollo de 4 componentes base.",
+      "Participación en la creación del entorno de librería de componentes en Angular 20, colaborando directamente en el desarrollo de más de 40 componentes dinámicos reutilizables.",
       "Implementación de pruebas unitarias con Jest y documentación técnica con Storybook, asegurando trazabilidad y estabilidad.",
       "Soporte al equipo encargado de integrar los componentes, resolviendo incidencias y manteniendo la coherencia técnica del sistema.",
     ],
@@ -45,6 +45,44 @@ const experienceData: Experience[] = [
       "Implementación de mejoras en la interfaz de usuario (UI) para actualizar y modernizar sitios en producción.",
       "Generación de documentación para asegurar trazabilidad de cambios.",
       "Optimización de velocidad de carga y mejoras en la usabilidad para una mejor experiencia del usuario.",
+    ],
+  },
+];
+
+const freelanceData: Experience[] = [
+  {
+    role: "Shopify Front-End Developer",
+    company: "Yellowterra",
+    period: "2025 – 2026",
+    highlights: [
+      "Marketplace startup de productos ecológicos creado con Shopify: implementación y personalización de un theme existente, ajustes puntuales de código (Liquid), integración de apps, formularios con validaciones, configuración de envío de emails y mejora de flujos de UI/UX.",
+    ],
+  },
+  {
+    role: "Front-End Developer",
+    company: "Celpi",
+    period: "2025 – 2026",
+    highlights: [
+      "Sitio de constitución de empresas y asesoría tributaria (Chile): cobros con Mercado Pago en sandbox y formulario de contacto gestionado con Google Apps Script. Emails de compra con plantilla de Mercado Pago, más una confirmación vía Google Apps Script que reciben comprador y negocio.",
+      "Formularios con validaciones anti-inyección y anti-spam, variables de entorno protegidas, deploy en hosting cPanel y SEO técnico.",
+    ],
+  },
+  {
+    role: "Front-End Developer",
+    company: "GC Asesores",
+    period: "2025 – 2026",
+    highlights: [
+      "Presencia digital de la firma en Monterrey: formulario de contacto con Google Apps Script que envía las consultas por correo.",
+      "Aplicación en Next.js y React con Context API y TypeScript, arquitectura limpia de componentes atómicos y moleculares, desplegada en Vercel con dominio propio y SEO.",
+    ],
+  },
+  {
+    role: "Front-End Developer",
+    company: "Colegio de Contadores Valle Dorado (CCVD)",
+    period: "2025 – 2026",
+    highlights: [
+      "Embudo publicitario en Next.js para la academia fiscal: catálogo de talleres y planes de suscripción.",
+      "Interfaz escalable con theming por variables CSS, Context API y TypeScript: componentes accesibles, buenas prácticas SEO y rendimiento medido en Lighthouse.",
     ],
   },
 ];
@@ -156,6 +194,32 @@ export default function Experience() {
               key={`${exp.company}-${index}`}
               experience={exp}
               isLast={index === experienceData.length - 1}
+            />
+          ))}
+        </motion.div>
+
+        <motion.h2
+          className={`${styles.subtitle} font-bebas`}
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportConfig}
+          transition={{ duration: 0.6 }}
+        >
+          Experiencias Freelance
+        </motion.h2>
+
+        <motion.div
+          className={styles.timelineContainer}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportConfig}
+        >
+          {freelanceData.map((exp, index) => (
+            <ExperienceItem
+              key={`${exp.company}-${index}`}
+              experience={exp}
+              isLast={index === freelanceData.length - 1}
             />
           ))}
         </motion.div>

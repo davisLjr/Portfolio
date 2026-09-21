@@ -23,7 +23,7 @@ export default function Footer() {
 
           <div className={styles.actions}>
             <a
-              href="/FrontEnd_Developer_DavisL.pdf"
+              href="/FrontEnd_Developer_Davis.pdf"
               download="Davis_Lapenta_CV.pdf"
               className={styles.button}
             >
@@ -49,7 +49,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Davis Lapenta. Todos los derechos reservados.
           </p>
           <p className={styles.email}>
-            <a href="mailto:davisjuniorlvlp@gmail.com">davisjuniorlvlp@gmail.com</a>
+            <a href="mailto:davislapenta@gmail.com">davislapenta@gmail.com</a>
           </p>
         </div>
       </div>

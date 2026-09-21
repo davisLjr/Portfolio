@@ -29,6 +29,19 @@
   }
 }
 
+.subtitle {
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 7rem 0 4rem;
+  text-align: center;
+  color: var(--text-color);
+
+  @media (max-width: 768px) {
+    margin: 5rem 0 3rem;
+  }
+}
+
 .timelineContainer {
   position: relative;
   display: flex;
