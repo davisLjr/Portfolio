@@ -75,7 +75,7 @@ export const metadata: Metadata = {
     description: "Desarrollador front-end especializado en React, Next.js y TypeScript con más de 5 años de experiencia.",
   },
   verification: {
-    google: "tu-codigo-de-verificacion-google",
+    google: "rmEq9XrKpNG0H7Q9MR1ejin90-NLxg-oh0eQqrn5bGA",
   },
 };
 
