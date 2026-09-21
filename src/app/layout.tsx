@@ -1,7 +1,9 @@
 import type { Metadata, Viewport } from "next";
 import { Bebas_Neue, Montserrat } from "next/font/google";
 import { Providers } from "@/components/Providers";
-import Header from "@/components/Header";
+// TEMPORAL: Header viejo comentado — probando el NewHeader (cristal)
+// import Header from "@/components/Header";
+import NewHeader from "@/components/NewHeader";
 import CurtainEffect from "@/components/CurtainEffect";
 import SmoothScroll from "@/components/SmoothScroll";
 import CookieConsent from "@/components/CookieConsent";
@@ -41,6 +43,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Davis Lapenta", url: "https://linkedin.com/in/davis-laviera/" }],
   creator: "Davis Lapenta",
   publisher: "Davis Lapenta",
+  formatDetection: {
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -91,11 +96,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" data-theme="dark" suppressHydrationWarning>
+    <html lang="es" data-theme="light" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){const theme=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',theme);})();`,
+            __html: `(function(){const theme=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',theme);})();`,
           }}
         />
         <script
@@ -106,9 +111,12 @@ export default function RootLayout({
       <body className={`${bebasNeue.variable} ${montserrat.variable}`} suppressHydrationWarning>
         <CookieConsent />
         <Providers>
-          <SmoothScroll />
+          {/* DESACTIVADO TEMPORALMENTE para probar la web sin Lenis — reactivar antes de commitear */}
+          {/* <SmoothScroll /> */}
           <CurtainEffect>
-            <Header />
+            {/* TEMPORAL: header viejo comentado — probando el NewHeader */}
+            {/* <Header /> */}
+            <NewHeader />
             {children}
           </CurtainEffect>
         </Providers>

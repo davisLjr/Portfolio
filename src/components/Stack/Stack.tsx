@@ -92,8 +92,8 @@ export default function Stack() {
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
     return {
       once: false,
-      amount: isMobile ? 0.01 : 0.3,
-      margin: isMobile ? "0px 0px -450px 0px" : "0px 0px -100px 0px"
+      amount: isMobile ? 0.01 : 0.2,
+      margin: isMobile ? "0px 0px -400px 0px" : "0px 0px -50px 0px"
     };
   }, []);
 

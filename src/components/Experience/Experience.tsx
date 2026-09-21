@@ -165,7 +165,7 @@ export default function Experience() {
     return {
       once: false,
       amount: isMobile ? 0.01 : 0.2,
-      margin: isMobile ? "0px 0px -450px 0px" : "0px 0px -50px 0px"
+      margin: isMobile ? "0px 0px -400px 0px" : "0px 0px 0px 0px"
     };
   }, []);
 

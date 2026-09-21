@@ -1,0 +1,60 @@
+/* Port fiel del efecto Liquid Glass (referencia: CodePen samarkandiy/MYwQwZZ).
+   Regla de oro: este contenedor NO debe tener transform/filter/will-change. */
+
+.glassContainer {
+  position: relative;
+  display: flex;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  background: transparent;
+  overflow: hidden;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 2.2);
+}
+
+.rounded {
+  border-radius: 2rem;
+}
+
+.large {
+  min-width: 32rem;
+}
+
+.glassFilter {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* ⚠️ backdrop-filter: blur(0px) Y filter: url(#...) van INLINE en el TSX a propósito:
+     LightningCSS/Turbopack rompe blur(0px) en CSS. No mover acá. */
+  isolation: isolate;
+}
+
+.glassOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.glassSpecular {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  overflow: hidden;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 0 5px rgba(255, 255, 255, 0.75);
+}
+
+.glassContent {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 1rem 1.5rem 0.9rem;
+  width: 100%;
+}

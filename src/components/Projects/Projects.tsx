@@ -185,7 +185,7 @@ export default function Projects() {
   const viewportConfig = useMemo(() => ({
     once: false,
     amount: 0.1,
-    margin: "0px 0px -100px 0px"
+    margin: "0px 0px -50px 0px"
   }), []);
 
   const [modalProject, setModalProject] = useState<Project | null>(null);

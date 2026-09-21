@@ -1,0 +1,58 @@
+/* Página de prueba para el efecto Liquid Glass.
+   Fondo animado igual que el CodePen de referencia — TEMPORAL, borrar cuando termine la prueba. */
+
+.lab {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: url("https://images.unsplash.com/photo-1551384963-cccb0b7ed94b?q=80&w=3247&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+    center/cover;
+  animation: labBgMove 5s ease-in-out infinite alternate;
+}
+
+@keyframes labBgMove {
+  from {
+    background-position: center center;
+  }
+  to {
+    background-position: center top;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lab {
+    animation: none;
+  }
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: var(--font-montserrat);
+    font-size: 0.95rem;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+}
+
+.contact {
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: var(--font-montserrat);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
