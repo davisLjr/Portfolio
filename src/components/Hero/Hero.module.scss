@@ -1,19 +1,39 @@
 .hero {
   position: relative;
-  height: 100vh;
+  /* Sin height fijo: si el contenido no entra (ventanas bajas), la sección
+     CRECE y la página scrollea — en vez de recortarse con overflow: hidden */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 6rem 2rem 2rem 2rem;
+  /* padding-bottom: reserva el espacio del botón de scroll (bottom 3rem + 48px alto) */
+  padding: 6rem 2rem 7rem 2rem;
   overflow: hidden;
 
   @media (max-width: 768px) {
     align-items: center;
     padding: 4rem 1rem 2rem 1rem;
     min-height: 700px;
-    height: 700px;
+  }
+
+  /* Ventanas con poca altura: comprimimos el layout para que entre en pantalla */
+  @media (max-height: 800px) {
+    padding: 5rem 2rem 6.5rem 2rem;
+
+    .carouselContainer {
+      margin: 2.5rem 0 3.5rem;
+    }
+  }
+
+  @media (max-height: 620px) {
+    .carouselContainer {
+      margin: 1.5rem 0 2rem;
+    }
+
+    .carouselItem span {
+      font-size: 7rem;
+    }
   }
 }
 

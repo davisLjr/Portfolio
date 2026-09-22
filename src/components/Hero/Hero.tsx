@@ -10,8 +10,11 @@ export default function Hero() {
   const items = Array(5).fill(carouselText);
 
   const handleScrollDown = () => {
+    // Baja UNA viewport desde la posición ACTUAL. (Antes era scrollTo(innerHeight)
+    // absoluto, pero el Hero ya no arranca la página: arriba está el NewPreHero,
+    // así que eso llevaba hacia ARRIBA al pin.)
     window.scrollTo({
-      top: window.innerHeight,
+      top: window.scrollY + window.innerHeight,
       behavior: "smooth",
     });
   };
